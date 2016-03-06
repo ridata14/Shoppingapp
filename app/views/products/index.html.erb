@@ -1,1 +1,17 @@
-<h1>Products pages goes here...<h1>
+<h1>Products</h1>
+
+	<% if @products.any? %>
+
+		<% @products.each do |product| %>
+			<span><%= link_to product.name, product %></span><br />
+			Price: <%= product.price %><br />
+			Category: <%= product.category %>
+			<br />
+			<br />
+		<% end %>
+
+	<% else %>
+		<p>No products to show.</p>
+	<% end %>
+
+<%= link_to 'Add Product', new_product_path, class: 'btn btn-default' %>
